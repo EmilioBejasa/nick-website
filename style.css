@@ -207,18 +207,6 @@ a:hover { text-decoration-color: var(--ink); }
   .nav-toggle { display: flex; }
 }
 
-/* ---------- Stripe divider ---------- */
-
-.stripe-divider {
-  height: 7px;
-  width: 100%;
-  background-image: repeating-linear-gradient(
-    90deg,
-    #9a9a9a 0px, #9a9a9a 3px,
-    transparent 3px, transparent 10px
-  );
-}
-
 /* ---------- Dark sections (alternate stripe band) ---------- */
 
 .section-dark {
