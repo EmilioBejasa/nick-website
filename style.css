@@ -11,8 +11,10 @@
   --line: #e5e5e5;
   --accent: #111111;
   --accent-ink: #ffffff;
+  --accent-warm: #bf6a45;
+  --accent-warm-soft: rgba(191, 106, 69, 0.35);
   --card: #ffffff;
-  --radius: 2px;
+  --radius: 8px;
   --wrap: 720px;
 
   /* dark stripe tokens */
@@ -44,6 +46,21 @@ h1, h2, h3, .logo, .links-name {
 
 img { max-width: 100%; display: block; }
 
+::selection { background: var(--accent-warm); color: #ffffff; }
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent-warm);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+.arrow { display: inline-block; transition: transform 0.15s ease; }
+a:hover .arrow { transform: translateX(3px); }
+
 .wrap {
   max-width: var(--wrap);
   margin: 0 auto;
@@ -63,8 +80,8 @@ h3 { font-size: 1.05rem; }
 
 p { margin: 0 0 1em; color: var(--ink-soft); }
 
-a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); }
-a:hover { text-decoration-color: var(--ink); }
+a { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; text-decoration-color: var(--line); transition: text-decoration-color 0.15s ease; }
+a:hover { text-decoration-color: var(--accent-warm); }
 
 .eyebrow {
   text-transform: uppercase;
@@ -95,22 +112,23 @@ a:hover { text-decoration-color: var(--ink); }
   border: 1px solid var(--ink);
   cursor: pointer;
   text-decoration: none;
-  transition: background 0.15s ease, color 0.15s ease;
+  transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease, transform 0.15s ease, box-shadow 0.15s ease;
 }
-.btn:hover { text-decoration: none; }
+.btn:hover { text-decoration: none; transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
 
 .btn-primary {
   background: var(--ink);
   color: var(--accent-ink);
 }
-.btn-primary:hover { background: #333; }
+.btn-primary:hover { background: #333; box-shadow: 0 14px 28px -14px var(--accent-warm-soft); }
 
 .btn-ghost {
   background: transparent;
   color: var(--ink);
   border-color: var(--line);
 }
-.btn-ghost:hover { border-color: var(--ink); }
+.btn-ghost:hover { border-color: var(--accent-warm); color: var(--accent-warm); }
 
 /* ---------- Header / nav ---------- */
 
@@ -135,8 +153,9 @@ a:hover { text-decoration-color: var(--ink); }
   font-size: 1rem;
   color: var(--ink);
   text-decoration: none;
+  transition: color 0.15s ease;
 }
-.logo:hover { text-decoration: none; }
+.logo:hover { text-decoration: none; color: var(--accent-warm); }
 
 .nav {
   display: flex;
@@ -151,14 +170,14 @@ a:hover { text-decoration-color: var(--ink); }
   padding: 6px 0;
   border-bottom: 1px solid transparent;
   text-decoration: none;
-  transition: color 0.15s ease, border-color 0.15s ease;
+  transition: color 0.15s ease, border-color 0.15s ease, transform 0.15s ease;
 }
 
-.nav a:hover { color: var(--ink); border-bottom-color: var(--line); }
+.nav a:hover { color: var(--accent-warm); border-bottom-color: var(--accent-warm); transform: translateY(-1px); }
 
 .nav a.is-active {
   color: var(--ink);
-  border-bottom-color: var(--ink);
+  border-bottom-color: var(--accent-warm);
 }
 
 .nav a.nav-highlight {
@@ -166,7 +185,7 @@ a:hover { text-decoration-color: var(--ink); }
   font-weight: 600;
   border-bottom-color: transparent;
 }
-.nav a.nav-highlight:hover { color: var(--ink); }
+.nav a.nav-highlight:hover { color: var(--accent-warm); }
 
 .nav-toggle {
   display: none;
@@ -210,27 +229,39 @@ a:hover { text-decoration-color: var(--ink); }
 /* ---------- Dark sections (alternate stripe band) ---------- */
 
 .section-dark {
+  position: relative;
   background: var(--bg-dark);
   color: var(--ink-dark);
 }
+.section-dark::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
+.section-dark > .wrap { position: relative; z-index: 1; }
 .section-dark h1,
 .section-dark h2,
 .section-dark h3 { color: var(--ink-dark); }
 .section-dark p { color: var(--ink-dark-soft); }
 .section-dark .eyebrow { color: var(--ink-dark-soft); }
 .section-dark a { color: var(--ink-dark); text-decoration-color: var(--line-dark); }
-.section-dark a:hover { text-decoration-color: var(--ink-dark); }
+.section-dark a:hover { text-decoration-color: var(--accent-warm); }
 
 .section-dark .btn-primary { background: var(--ink-dark); color: #111111; }
-.section-dark .btn-primary:hover { background: #d4d4d4; }
+.section-dark .btn-primary:hover { background: #d4d4d4; box-shadow: 0 14px 28px -14px var(--accent-warm-soft); }
 .section-dark .btn-ghost { color: var(--ink-dark); border-color: var(--line-dark); }
-.section-dark .btn-ghost:hover { border-color: var(--ink-dark); }
+.section-dark .btn-ghost:hover { border-color: var(--accent-warm); color: var(--accent-warm); }
 
 .section-dark .about-photo,
 .section-dark .links-avatar {
   background: var(--bg-dark-alt);
   border-color: var(--line-dark);
   color: var(--ink-dark-soft);
+  box-shadow: 0 24px 48px -24px var(--accent-warm-soft);
 }
 
 .section-dark .about-facts li { border-top-color: var(--line-dark); color: var(--ink-dark-soft); }
@@ -239,19 +270,18 @@ a:hover { text-decoration-color: var(--ink); }
 .section-dark .poem-entry { border-top-color: var(--line-dark); }
 .section-dark .poem-list .poem-entry:last-child { border-bottom-color: var(--line-dark); }
 .section-dark .poem-venue { color: var(--ink-dark-soft); }
-.section-dark .poem-excerpt { border-left-color: var(--line-dark); color: var(--ink-dark-soft); }
 
 .section-dark .contact-form input,
 .section-dark .contact-form textarea { color: var(--ink-dark); border-bottom-color: var(--line-dark); }
 .section-dark .contact-form input:focus,
-.section-dark .contact-form textarea:focus { border-bottom-color: var(--ink-dark); }
+.section-dark .contact-form textarea:focus { border-bottom-color: var(--accent-warm); }
 .section-dark .contact-form label { color: var(--ink-dark); }
 .section-dark .form-status { color: var(--ink-dark-soft); }
 .section-dark .form-status.success { color: var(--ink-dark); }
 
 .section-dark .link-item a { border-color: var(--line-dark); color: var(--ink-dark); }
 .section-dark .link-item:first-child a { border-top-color: var(--line-dark); }
-.section-dark .link-item a:hover { background: var(--bg-dark-alt); }
+.section-dark .link-item a:hover { background: var(--bg-dark-alt); border-color: var(--accent-warm); }
 .section-dark .links-tagline,
 .section-dark .links-footer-note { color: var(--ink-dark-soft); }
 
@@ -265,7 +295,7 @@ a:hover { text-decoration-color: var(--ink); }
 .pull-quote {
   margin: 0 0 2em;
   padding-left: 20px;
-  border-left: 2px solid var(--line);
+  border-left: 2px solid var(--accent-warm);
   font-family: "Fraunces", "Georgia", serif;
   font-style: italic;
   font-size: 1.15rem;
@@ -282,7 +312,7 @@ a:hover { text-decoration-color: var(--ink); }
   text-transform: uppercase;
   color: var(--ink-soft);
 }
-.section-dark .pull-quote { border-left-color: var(--line-dark); color: var(--ink-dark); }
+.section-dark .pull-quote { color: var(--ink-dark); }
 .section-dark .pull-quote cite { color: var(--ink-dark-soft); }
 
 /* ---------- Generic page header (About / Work / Contact) ---------- */
@@ -309,6 +339,7 @@ a:hover { text-decoration-color: var(--ink); }
   aspect-ratio: 4 / 5;
   background: var(--bg-alt);
   border: 1px solid var(--line);
+  border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -366,7 +397,7 @@ a:hover { text-decoration-color: var(--ink); }
 .poem-excerpt {
   margin: 0 0 1em;
   padding-left: 18px;
-  border-left: 2px solid var(--line);
+  border-left: 2px solid var(--accent-warm);
   font-family: "Fraunces", "Georgia", serif;
   font-style: italic;
   color: var(--ink-soft);
@@ -374,6 +405,7 @@ a:hover { text-decoration-color: var(--ink); }
 .poem-excerpt p { margin: 0 0 0.3em; color: inherit; }
 
 .work-link { font-weight: 500; font-size: 0.88rem; }
+.section-dark .poem-excerpt { color: var(--ink-dark-soft); }
 
 /* ---------- Contact ---------- */
 
@@ -411,7 +443,7 @@ a:hover { text-decoration-color: var(--ink); }
 .contact-form input:focus,
 .contact-form textarea:focus {
   outline: none;
-  border-bottom-color: var(--ink);
+  border-bottom-color: var(--accent-warm);
 }
 .contact-form button { margin-top: 20px; justify-self: start; }
 .form-status { font-size: 0.85rem; min-height: 1.4em; margin: 10px 0 0; color: var(--ink-soft); }
@@ -483,7 +515,7 @@ a:hover { text-decoration-color: var(--ink); }
   font-weight: 700;
   line-height: 1;
   letter-spacing: 0.02em;
-  opacity: 0.55;
+  color: var(--accent-warm);
   min-width: 22px;
   text-align: center;
 }
@@ -497,11 +529,23 @@ a:hover { text-decoration-color: var(--ink); }
 /* ---------- Footer ---------- */
 
 .site-footer {
+  position: relative;
   background: var(--bg-dark);
   color: var(--ink-dark-soft);
   padding: 24px 0;
 }
+.site-footer::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  opacity: 0.035;
+  pointer-events: none;
+  z-index: 0;
+}
 .footer-inner {
+  position: relative;
+  z-index: 1;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -513,4 +557,4 @@ a:hover { text-decoration-color: var(--ink); }
 .footer-inner p { color: var(--ink-dark-soft); margin: 0; }
 .socials { display: flex; gap: 18px; }
 .socials a { color: var(--ink-dark-soft); font-weight: 400; text-decoration-color: var(--line-dark); }
-.socials a:hover { color: var(--ink-dark); text-decoration-color: var(--ink-dark); }
+.socials a:hover { color: var(--accent-warm); text-decoration-color: var(--accent-warm); }
