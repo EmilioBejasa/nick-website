@@ -264,9 +264,6 @@ a:hover { text-decoration-color: var(--accent-warm); }
   box-shadow: 0 24px 48px -24px var(--accent-warm-soft);
 }
 
-.section-dark .about-facts li { border-top-color: var(--line-dark); color: var(--ink-dark-soft); }
-.section-dark .about-facts strong { color: var(--ink-dark); }
-
 .section-dark .poem-entry { border-top-color: var(--line-dark); }
 .section-dark .poem-list .poem-entry:last-child { border-bottom-color: var(--line-dark); }
 .section-dark .poem-venue { color: var(--ink-dark-soft); }
@@ -348,21 +345,6 @@ a:hover { text-decoration-color: var(--accent-warm); }
   overflow: hidden;
 }
 .about-photo img { width: 100%; height: 100%; object-fit: cover; }
-
-.about-facts {
-  list-style: none;
-  padding: 0;
-  margin: 1.5em 0 0;
-  display: grid;
-  gap: 0;
-}
-.about-facts li {
-  padding: 10px 0;
-  border-top: 1px solid var(--line);
-  color: var(--ink-soft);
-  font-size: 0.9rem;
-}
-.about-facts strong { color: var(--ink); margin-right: 6px; font-weight: 600; }
 
 /* ---------- Poems ---------- */
 
