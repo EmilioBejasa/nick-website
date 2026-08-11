@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://emiliobejasa.github.io/nick-website/sitemap.xml
