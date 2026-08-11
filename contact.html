@@ -4,7 +4,13 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Contact — Nick</title>
-<meta name="description" content="[Placeholder] Get in touch with Nick." />
+<meta name="description" content="Get in touch with Nicholas Tyler Ng — readings, submissions, collaborations, or just to say hello." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Contact — Nick" />
+<meta property="og:description" content="Get in touch with Nicholas Tyler Ng — readings, submissions, collaborations, or just to say hello." />
+<meta property="og:image" content="https://emiliobejasa.github.io/nick-website/nick_pic.jpg" />
+<meta property="og:url" content="https://emiliobejasa.github.io/nick-website/contact.html" />
+<meta name="twitter:card" content="summary_large_image" />
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;0,600;1,400;1,500;1,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -44,8 +50,7 @@
     <div class="wrap contact-inner">
       <div class="contact-text">
         <p>
-          [Placeholder] Say a bit about how/why people should reach out —
-          readings, submissions, collaborations, or just to say hello.
+          Reach out about readings, submissions, collaborations, or just to say hello.
         </p>
         <p class="contact-alt">
           Or email directly at
@@ -53,7 +58,8 @@
         </p>
       </div>
 
-      <form class="contact-form" id="contact-form">
+      <!-- Replace YOUR_FORM_ID below with your Formspree form ID once you've created one at formspree.io -->
+      <form class="contact-form" id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" required autocomplete="name">
 
