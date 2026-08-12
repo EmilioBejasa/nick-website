@@ -1,6 +1,6 @@
 // =========================================================
 // Nick — shared script
-// Used by: index.html, about.html, poems.html, links.html, contact.html
+// Used by: index.html, about.html, poems.html, contact.html
 // =========================================================
 
 document.addEventListener("DOMContentLoaded", function () {

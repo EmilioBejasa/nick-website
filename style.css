@@ -1,6 +1,6 @@
 /* =========================================================
    Nick — shared stylesheet (minimalist theme)
-   Used by: index.html, about.html, work.html, links.html, contact.html
+   Used by: index.html, about.html, poems.html, contact.html
    ========================================================= */
 
 :root {
@@ -38,7 +38,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
-h1, h2, h3, .logo, .links-name {
+h1, h2, h3, .logo {
   font-family: "Fraunces", "Georgia", serif;
 }
 
@@ -256,8 +256,7 @@ a:hover { text-decoration-color: var(--accent-warm); }
 .section-dark .btn-ghost { color: var(--ink-dark); border-color: var(--line-dark); }
 .section-dark .btn-ghost:hover { border-color: var(--accent-warm); color: var(--accent-warm); }
 
-.section-dark .about-photo,
-.section-dark .links-avatar {
+.section-dark .about-photo {
   background: var(--bg-dark-alt);
   border-color: var(--line-dark);
   color: var(--ink-dark-soft);
@@ -279,8 +278,6 @@ a:hover { text-decoration-color: var(--accent-warm); }
 .section-dark .link-item a { border-color: var(--line-dark); color: var(--ink-dark); }
 .section-dark .link-item:first-child a { border-top-color: var(--line-dark); }
 .section-dark .link-item a:hover { background: var(--bg-dark-alt); border-color: var(--accent-warm); }
-.section-dark .links-tagline,
-.section-dark .links-footer-note { color: var(--ink-dark-soft); }
 
 /* ---------- Hero ---------- */
 
@@ -431,40 +428,9 @@ a:hover { text-decoration-color: var(--accent-warm); }
 .form-status { font-size: 0.85rem; min-height: 1.4em; margin: 10px 0 0; color: var(--ink-soft); }
 .form-status.success { color: var(--ink); }
 
-/* ---------- Links (linktree-style hub) ---------- */
+.contact-links { margin-top: 1.5em; }
 
-.links-page {
-  min-height: calc(100vh - 70px);
-  display: flex;
-  align-items: center;
-  padding: 56px 0 64px;
-}
-
-.links-card {
-  max-width: 400px;
-  margin: 0 auto;
-  text-align: center;
-  width: 100%;
-}
-
-.links-avatar {
-  width: 88px;
-  height: 88px;
-  margin: 0 auto 20px;
-  border-radius: 50%;
-  background: var(--bg-alt);
-  border: 1px solid var(--line);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--ink-soft);
-  font-size: 0.75rem;
-  overflow: hidden;
-}
-.links-avatar img { width: 100%; height: 100%; object-fit: cover; }
-
-.links-name { margin-bottom: 0.2em; }
-.links-tagline { margin-bottom: 2.2em; font-size: 0.92rem; }
+/* ---------- Link list (used on Contact) ---------- */
 
 .link-list {
   list-style: none;
@@ -500,12 +466,6 @@ a:hover { text-decoration-color: var(--accent-warm); }
   color: var(--accent-warm);
   min-width: 22px;
   text-align: center;
-}
-
-.links-footer-note {
-  margin-top: 2.2em;
-  font-size: 0.8rem;
-  color: var(--ink-soft);
 }
 
 /* ---------- Footer ---------- */
