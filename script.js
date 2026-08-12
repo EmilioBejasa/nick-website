@@ -32,6 +32,7 @@ document.addEventListener("DOMContentLoaded", function () {
     var href = link.getAttribute("href");
     if (href === currentPage || (currentPage === "" && href === "index.html")) {
       link.classList.add("is-active");
+      link.setAttribute("aria-current", "page");
     }
   });
 
