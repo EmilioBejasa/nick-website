@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://emiliobejasa.github.io/nick-website/sitemap.xml
+Sitemap: https://nicholastylerng.com/sitemap.xml
