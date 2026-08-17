@@ -35,40 +35,4 @@ document.addEventListener("DOMContentLoaded", function () {
       link.setAttribute("aria-current", "page");
     }
   });
-
-  // Contact form — submits to Formspree (see form's action= attribute)
-  var form = document.getElementById("contact-form");
-  var status = document.getElementById("form-status");
-  if (form && status) {
-    form.addEventListener("submit", function (e) {
-      e.preventDefault();
-
-      if (form.action.indexOf("YOUR_FORM_ID") !== -1) {
-        status.classList.remove("success");
-        status.textContent = "Form isn't connected yet — add your Formspree form ID to contact.html.";
-        return;
-      }
-
-      status.classList.remove("success");
-      status.textContent = "Sending...";
-
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { Accept: "application/json" },
-      })
-        .then(function (response) {
-          if (response.ok) {
-            status.textContent = "Thanks — your message has been sent.";
-            status.classList.add("success");
-            form.reset();
-          } else {
-            status.textContent = "Something went wrong. Please email directly instead.";
-          }
-        })
-        .catch(function () {
-          status.textContent = "Something went wrong. Please email directly instead.";
-        });
-    });
-  }
 });

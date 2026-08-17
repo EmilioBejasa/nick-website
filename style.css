@@ -283,14 +283,6 @@ a:hover { text-decoration-color: var(--accent-warm); }
 .section-dark .poem-list .poem-entry:last-child { border-bottom-color: var(--line-dark); }
 .section-dark .poem-venue { color: var(--ink-dark-soft); }
 
-.section-dark .contact-form input,
-.section-dark .contact-form textarea { color: var(--ink-dark); border-bottom-color: var(--line-dark); }
-.section-dark .contact-form input:focus,
-.section-dark .contact-form textarea:focus { border-bottom-color: var(--accent-warm); }
-.section-dark .contact-form label { color: var(--ink-dark); }
-.section-dark .form-status { color: var(--ink-dark-soft); }
-.section-dark .form-status.success { color: var(--ink-dark); }
-
 .section-dark .link-item a { border-color: var(--line-dark); color: var(--ink-dark); }
 .section-dark .link-item:first-child a { border-top-color: var(--line-dark); }
 .section-dark .link-item a:hover { background: var(--bg-dark-alt); border-color: var(--accent-warm); }
@@ -412,44 +404,9 @@ a:hover { text-decoration-color: var(--accent-warm); }
 /* ---------- Contact ---------- */
 
 .contact { padding: 56px 0 88px; }
-.contact-inner {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 56px;
-}
-@media (max-width: 720px) {
-  .contact-inner { grid-template-columns: 1fr; }
-}
+.contact-inner { max-width: 440px; }
 
 .contact-alt { margin-top: 1.5em; font-size: 0.9rem; }
-
-.contact-form {
-  display: grid;
-  gap: 6px;
-}
-.contact-form label {
-  font-size: 0.8rem;
-  font-weight: 600;
-  margin-top: 14px;
-}
-.contact-form input,
-.contact-form textarea {
-  font: inherit;
-  padding: 10px 0;
-  border: none;
-  border-bottom: 1px solid var(--line);
-  border-radius: 0;
-  background: transparent;
-  color: var(--ink);
-}
-.contact-form input:focus,
-.contact-form textarea:focus {
-  outline: none;
-  border-bottom-color: var(--accent-warm);
-}
-.contact-form button { margin-top: 20px; justify-self: start; }
-.form-status { font-size: 0.85rem; min-height: 1.4em; margin: 10px 0 0; color: var(--ink-soft); }
-.form-status.success { color: var(--ink); }
 
 .contact-links { margin-top: 1.5em; }
 
