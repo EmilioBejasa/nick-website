@@ -27,10 +27,10 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Highlight the current page in the nav
-  var currentPage = (window.location.pathname.split("/").pop() || "index.html");
+  var currentPath = window.location.pathname.replace(/\/$/, "") || "/";
   document.querySelectorAll(".nav a").forEach(function (link) {
-    var href = link.getAttribute("href");
-    if (href === currentPage || (currentPage === "" && href === "index.html")) {
+    var href = link.getAttribute("href").replace(/\/$/, "") || "/";
+    if (href === currentPath) {
       link.classList.add("is-active");
       link.setAttribute("aria-current", "page");
     }
